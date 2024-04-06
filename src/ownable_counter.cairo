@@ -1,6 +1,7 @@
 #[starknet::contract]
-mod OwnableCounter {
+pub mod OwnableCounter {
     use starknet_components::ownable::OwnableComponent;
+    use starknet::ContractAddress;
     component!(path: OwnableComponent, storage: ownable, event: OwnableEvent);
 
     #[abi(embed_v0)]
@@ -12,8 +13,6 @@ mod OwnableCounter {
         #[flat]
         OwnableEvent: OwnableComponent::Event,
     }
-    
-
     #[storage]
     struct Storage {
         counter: u128,

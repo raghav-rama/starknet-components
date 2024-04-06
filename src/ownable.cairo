@@ -17,6 +17,9 @@ pub mod OwnableComponent {
         fn owner(self: @ComponentState<TContractState>) -> ContractAddress {
             self.owner.read()
         }
+        fn set_owner(ref self: ComponentState<TContractState>, new_owner: ContractAddress) {
+            self.owner.write(new_owner);
+        }
     }
 }
 
