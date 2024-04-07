@@ -12,6 +12,14 @@ mod tests {
         dispatcher.set_owner(contract_address_const::<0>());
         assert(contract_address_const::<0>() == dispatcher.owner(), 'Some fuck up happened');
     }
+    #[test]
+    #[available_gas(200_000_000)]
+    #[should_panic]
+    fn test_contract_read_fail() {
+        let dispatcher = deploy_contract();
+        dispatcher.set_owner(contract_address_const::<1>());
+        assert(contract_address_const::<2>() == dispatcher.owner(), 'Some fuck up happened');
+    }
     fn deploy_contract() -> IOwnableDispatcher {
         let mut calldata = ArrayTrait::new();
         let (address0, _) = deploy_syscall(
