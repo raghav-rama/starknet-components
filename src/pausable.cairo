@@ -1,6 +1,7 @@
 // So far, we have created a component which can be used to set and get the owner of a contract
 // But we didn't do anything with it.
-// In this example, we will create a new component which will allow us to pause and unpause the contract.
+// In this example, we will create a new component which will allow us to pause and unpause the
+// contract.
 // We will then use the owner component to only allow the owner to pause and unpause the contract.
 
 #[starknet::component]
