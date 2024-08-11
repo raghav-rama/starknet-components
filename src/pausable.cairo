@@ -7,7 +7,7 @@
 pub mod pausable_component {
     use starknet_components::interface;
 
-    #[storage]    
+    #[storage]
     pub struct Storage {
         paused: bool,
     }
@@ -15,7 +15,8 @@ pub mod pausable_component {
     #[event]
     #[derive(Drop, starknet::Event)]
     pub enum Event {
-        
+        #[flat]
+        ContractPaused: (),
     }
 
     #[embeddable_as(Pausable)]
